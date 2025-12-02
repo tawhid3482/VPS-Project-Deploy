@@ -16,6 +16,7 @@ root@<ip address>'s password:
 
 ## Step-2
 
+make sure it has
 Go to www folder
 
 ```js
