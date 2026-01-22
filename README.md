@@ -81,6 +81,18 @@ npm run start
 sudo ufw reload
 ```
 
+## Step-React
+
+```js
+npm i -g serve
+serve -s dist -l 4000
+```
+```js
+npm i -g pm2
+pm2 serve /root/your-project/dist 4000 --name your-project
+pm2 save
+pm2 startup
+```
 ## Step-6
 
 ```js
