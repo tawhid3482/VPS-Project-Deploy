@@ -81,17 +81,32 @@ npm run start
 sudo ufw reload
 ```
 
-## Step-React
+## Step-React -create server.cjs file
 
 ```js
-npm i -g serve
-serve -s dist -l 4000
+const express = require("express");
+const path = require("path");
+
+const app = express();
+const PORT = 4000;
+
+// dist folder serve
+app.use(express.static(path.join(__dirname, "dist")));
+
+// React SPA fallback (MOST IMPORTANT)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 ```
 ```js
-npm i -g pm2
-pm2 serve /root/your-project/dist 4000 --name your-project
+server.cjs
+pm2 start server.cjs --name mpcpest-frontend
 pm2 save
-pm2 startup
 ```
 ## Step-6
 
